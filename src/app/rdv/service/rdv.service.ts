@@ -10,7 +10,7 @@ export class RdvService {
 
   private apiURL: string;
   constructor(private http: HttpClient) {
-    this.apiURL = 'http://localhost:8081/rdvs';
+    this.apiURL = 'https://ebanking-backend.herokuapp.com/rdvs';
   }
   public findAll(): Observable<Rdv[]> {
     return this.http.get<Rdv[]>(

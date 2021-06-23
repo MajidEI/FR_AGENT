@@ -9,14 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class OperationService {
 	private operationUrl: string;
 	constructor(private http: HttpClient) {
-		this.operationUrl = 'http://localhost:8081/operation';
+		this.operationUrl = 'https://ebanking-backend.herokuapp.com/operation';
 	}
 	/*   public findAll(): Observable<Operation[]> {
     return this.http.get<Operation[]>(this.operationUrl + 's');
   } */
 	public findOperations(code: string): Observable<Operation[]> {
 		return this.http.get<Operation[]>(
-			'http://localhost:8081/compte/' + code + '/operations'
+			'https://ebanking-backend.herokuapp.com/compte/' + code + '/operations'
 		);
 	}
 	public save(operation: Operation) {

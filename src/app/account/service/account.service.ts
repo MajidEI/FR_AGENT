@@ -9,12 +9,12 @@ import { Account } from '../model/account';
 export class AccountService {
   private accountUrl: string;
   constructor(private http: HttpClient) {
-    this.accountUrl = 'http://localhost:8081/compte';
+    this.accountUrl = 'https://ebanking-backend.herokuapp.com/compte';
   }
 
   public findAll(code: string): Observable<Account[]> {
     return this.http.get<Account[]>(
-      'http://localhost:8081/client/' + code + '/comptes'
+      'https://ebanking-backend.herokuapp.com/client/' + code + '/comptes'
     );
   }
 
@@ -32,7 +32,7 @@ export class AccountService {
 
   public getPDF(invoiceId: number): Observable<Blob> {
     return this.http.get<Blob>(
-      'http://localhost:8081/contratPDF/' + invoiceId,
+      'https://ebanking-backend.herokuapp.com/contratPDF/' + invoiceId,
       {
         responseType: 'blob' as 'json',
       }

@@ -12,7 +12,7 @@ export const InterceptorSkipHeader = new HttpHeaders({
   providedIn: 'root',
 })
 export class CurrencyConversionService {
-  apiURL = 'http://localhost:8081/devise';
+  apiURL = 'https://ebanking-backend.herokuapp.com/devise';
 
   constructor(private http: HttpClient) {}
   getRate(code_src: string, code_dest: string): Observable<any> {

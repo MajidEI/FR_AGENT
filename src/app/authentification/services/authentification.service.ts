@@ -13,7 +13,7 @@ export class AuthentificationService {
       Authorization: 'Basic ' + btoa(username + ':' + password),
     });
     return this.httpClient
-      .get<Agent>('http://localhost:8081/agent/username/' + username, {
+      .get<Agent>('https://ebanking-backend.herokuapp.com/agent/username/' + username, {
         headers,
       })
       .pipe(
