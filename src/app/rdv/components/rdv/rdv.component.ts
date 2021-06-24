@@ -12,7 +12,7 @@ import { RdvService } from '../../service/rdv.service';
 })
 export class RdvComponent implements OnInit {
 	rdvs: Rdv[] = [];
-	d: Date;
+	d: any;
 	dataSource = new MatTableDataSource<Rdv>(this.rdvs);
 	@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 	constructor(private rdvService: RdvService, public dialog: MatDialog) {}
@@ -42,10 +42,11 @@ export class RdvComponent implements OnInit {
 		);
 	}
 	checkDate(datederdv: any) {
-		this.d = new Date();
+		this.d = new Date().toISOString().split('T')[0];
 		console.log(this.d);
+		console.log(datederdv);
 		console.log(new Date(Date.parse(datederdv)));
-		if (new Date(Date.parse(datederdv)) > this.d) {
+		if (datederdv > this.d) {
 			return false;
 		} else {
 			return true;
