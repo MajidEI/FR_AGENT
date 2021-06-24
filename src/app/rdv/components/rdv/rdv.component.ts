@@ -31,13 +31,12 @@ export class RdvComponent implements OnInit {
 	ngOnInit(): void {
 		this.rdvService.findAll().subscribe(
 			(data) => {
-				console.log(data);
 				this.rdvs = data;
 				this.dataSource = new MatTableDataSource<Rdv>(this.rdvs);
 				this.dataSource.paginator = this.paginator;
 			},
 			(error) => {
-				console.log(error);
+				console.error(error);
 				this.dataSource = new MatTableDataSource<Rdv>(null);
 			}
 		);
@@ -47,7 +46,6 @@ export class RdvComponent implements OnInit {
 		console.log(this.d);
 		console.log(new Date(Date.parse(datederdv)));
 		if (new Date(Date.parse(datederdv)) > this.d) {
-			
 			return false;
 		} else {
 			return true;
