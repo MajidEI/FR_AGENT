@@ -44,9 +44,10 @@ export class RdvComponent implements OnInit {
 	}
 	checkDate(datederdv: any) {
 		this.d = new Date();
-		console.warn(new Date(Date.parse(datederdv.replace(/-/g, '/'))));
-		console.warn(this.d);
-		if (new Date(Date.parse(datederdv.replace(/-/g, '/'))) > this.d) {
+		console.log(this.d);
+		console.log(new Date(Date.parse(datederdv)));
+		if (new Date(Date.parse(datederdv)) > this.d) {
+			
 			return false;
 		} else {
 			return true;
