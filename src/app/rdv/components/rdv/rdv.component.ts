@@ -45,8 +45,7 @@ export class RdvComponent implements OnInit {
 		this.d = new Date().toISOString().split('T')[0];
 		console.log(this.d);
 		console.log(datederdv);
-		console.log(new Date(Date.parse(datederdv)));
-		if (datederdv > this.d) {
+		if (datederdv.getDate() > this.d.getDate()) {
 			return false;
 		} else {
 			return true;
